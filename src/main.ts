@@ -13,6 +13,7 @@ app.use(coupon)
 
 app.use(createPinia())
 app.use(router)
+app.config.globalProperties.name = 'java'
 Sentry.init({
     app,
     dsn: "https://1e7b8da885c7416aa45163899e2e4598@o4504949066170368.ingest.sentry.io/4504949072461824",

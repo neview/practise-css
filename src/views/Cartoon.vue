@@ -1,5 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import {
+  ref,
+  getCurrentInstance,
+  onMounted,
+  onBeforeMount,
+  onDeactivated,
+  watchEffect,
+} from "vue";
+import "../assets/magic.css";
+const { appContext, proxy }: any = getCurrentInstance();
 let isShow = ref(1);
 let isShow2 = ref(1);
 const butt = () => {
@@ -12,9 +21,33 @@ const butt = () => {
     isShow2.value = 1;
   }, 1500);
 };
+const box = ref(null);
+
+const getList = (obj: object) => {
+  console.log("obj", obj);
+};
+const getNode = () => {
+  console.log("box", box.value);
+  console.log("name", appContext.config.globalProperties.name);
+  console.log("proxy", proxy.$refs.box);
+};
+watchEffect((onInvalidate) => {
+  console.log("沐华");
+  onInvalidate(() => {
+    console.log(2222);
+  });
+});
+onMounted(() => {
+  getList([1, 2, 3]);
+  getNode();
+});
+// 组件卸载前 对应 vue2 的 beforeDestroy
+onBeforeMount(() => {});
+// 退出缓存组件，对应 vue2 的 deactivated
+onDeactivated(() => {});
 </script>
 <template>
-  <div class="cartoon twisterInUp" @click="butt"></div>
+  <div class="cartoon twisterInUp" @click="butt" ref="box"></div>
   <div
     class="cartoon vanishIn"
     :class="isShow2 === 0 ? 'magic' : ''"
