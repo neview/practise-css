@@ -4,6 +4,7 @@ import Coupon from '../views/Coupon.vue'
 import Cartoon from '../views/Cartoon.vue'
 import Watermark from '../views/Watermark.vue'
 import Three from '../views/Three.vue'
+import DigitalScroll from '../views/digitalScroll.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/three',
       name: 'three',
       component: Three
+    },
+    {
+      path: '/digitalScroll',
+      name: 'digitalScroll',
+      component: DigitalScroll
     }
   ]
 })

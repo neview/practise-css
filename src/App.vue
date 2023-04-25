@@ -24,6 +24,9 @@ const couponButt = (obj: Number) => {
     case 5:
       router.push("/three");
       break;
+    case 6:
+      router.push("/digitalScroll");
+      break;
   }
 };
 </script>
@@ -39,6 +42,7 @@ const couponButt = (obj: Number) => {
     <Button2 @click="couponButt(3)" style="margin-left: 20px"></Button2>
     <Button3 @click="couponButt(4)" style="margin-left: 20px"></Button3>
     <Button4 @click="couponButt(5)" style="margin-left: 20px"></Button4>
+    <Button3 @click="couponButt(6)" style="margin-left: 20px"></Button3>
   </div>
   <RouterView />
 </template>
